@@ -1,0 +1,30 @@
+{"id": "D01", "split": "dev", "module": "comm", "message": "I2C NACK from address 0x50", "expected": "COMMUNICATION"}
+{"id": "D02", "split": "dev", "module": "comm", "message": "SPI CRC error on read", "expected": "COMMUNICATION"}
+{"id": "D03", "split": "dev", "module": "comm", "message": "Bus 2: slave did not acknowledge", "expected": "COMMUNICATION"}
+{"id": "D04", "split": "dev", "module": "comm", "message": "No ACK received from EEPROM", "expected": "COMMUNICATION"}
+{"id": "D05", "split": "dev", "module": "smoke_sensor", "message": "Response timeout after 200ms", "expected": "TIMEOUT"}
+{"id": "D06", "split": "dev", "module": "gas_sensor", "message": "Operation timed out waiting for sensor", "expected": "TIMEOUT"}
+{"id": "D07", "split": "dev", "module": "comm", "message": "传感器响应超时", "expected": "TIMEOUT"}
+{"id": "D08", "split": "dev", "module": "alarm", "message": "WDT reset detected", "expected": "WATCHDOG_RESET"}
+{"id": "D09", "split": "dev", "module": "alarm", "message": "Watchdog triggered system reset", "expected": "WATCHDOG_RESET"}
+{"id": "D10", "split": "dev", "module": "alarm", "message": "看门狗复位，启动次数 2", "expected": "WATCHDOG_RESET"}
+{"id": "D11", "split": "dev", "module": "power", "message": "VCC out of range: 2.95V", "expected": "VOLTAGE"}
+{"id": "D12", "split": "dev", "module": "power", "message": "Brown-out reset at power on", "expected": "VOLTAGE"}
+{"id": "D13", "split": "dev", "module": "power", "message": "Supply under-voltage detected", "expected": "VOLTAGE"}
+{"id": "D14", "split": "dev", "module": "gas_sensor", "message": "Fixture probe 2 not connected", "expected": "FIXTURE"}
+{"id": "D15", "split": "dev", "module": "alarm", "message": "Pogo pin contact failure on test jig", "expected": "FIXTURE"}
+{"id": "D16", "split": "dev", "module": "smoke_sensor", "message": "Assert failed: temp=85, expected <70", "expected": "ASSERTION"}
+{"id": "D17", "split": "dev", "module": "smoke_sensor", "message": "Expected 3 LED blinks, observed 1", "expected": "ASSERTION"}
+{"id": "D18", "split": "dev", "module": "gas_sensor", "message": "Gas baseline drifted beyond calibration window", "expected": "ASSERTION"}
+{"id": "D19", "split": "dev", "module": "unknown", "message": "Device rebooted unexpectedly during self-test", "expected": "WATCHDOG_RESET"}
+{"id": "D20", "split": "dev", "module": "comm", "message": "Unknown error 0x7F", "expected": "UNKNOWN"}
+{"id": "X01", "split": "test", "module": "comm", "message": "I2C NACK on address 0x3C", "expected": "COMMUNICATION"}
+{"id": "X02", "split": "test", "module": "comm", "message": "UART frame CRC mismatch", "expected": "COMMUNICATION"}
+{"id": "X03", "split": "test", "module": "alarm", "message": "Display controller did not acknowledge command", "expected": "COMMUNICATION"}
+{"id": "X04", "split": "test", "module": "comm", "message": "Timeout waiting for flash ready", "expected": "TIMEOUT"}
+{"id": "X05", "split": "test", "module": "gas_sensor", "message": "Request timed-out after 3 retries", "expected": "TIMEOUT"}
+{"id": "X06", "split": "test", "module": "alarm", "message": "WDT expired, MCU reset", "expected": "WATCHDOG_RESET"}
+{"id": "X07", "split": "test", "module": "power", "message": "Brownout detected on 3V3 rail", "expected": "VOLTAGE"}
+{"id": "X08", "split": "test", "module": "alarm", "message": "Test jig cable loose", "expected": "FIXTURE"}
+{"id": "X09", "split": "test", "module": "alarm", "message": "Assertion error: buzzer freq 3.1kHz, expected 3.4kHz", "expected": "ASSERTION"}
+{"id": "X10", "split": "test", "module": "alarm", "message": "Self-test result mismatch on alarm relay", "expected": "ASSERTION"}

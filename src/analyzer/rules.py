@@ -15,13 +15,15 @@ from analyzer.parser import Record
 
 FIXTURE_STREAK = 3
 
-# v1：只覆盖最标准的写法
+# v2（见 docs/ITERATION_LOG.md）：只根据 dev 集的失败案例补充「意思明确」的同义写法。
+# 「意外重启」这类可能有多种原因的写法，故意不写成规则，交给 LLM + 人工确认。
 PATTERNS: list[tuple[str, str, re.Pattern]] = [
-    ("FIXTURE", "fixture_keyword", re.compile(r"fixture|probe", re.I)),
-    ("WATCHDOG_RESET", "watchdog", re.compile(r"\bWDT\b", re.I)),
-    ("COMMUNICATION", "bus_error", re.compile(r"\bNACK\b|\bCRC\b", re.I)),
-    ("TIMEOUT", "timeout", re.compile(r"timeout", re.I)),
-    ("VOLTAGE", "voltage_keyword", re.compile(r"\bVCC\b", re.I)),
+    ("FIXTURE", "fixture_keyword", re.compile(r"fixture|probe|pogo|\bjig\b|夹具|探针", re.I)),
+    ("WATCHDOG_RESET", "watchdog", re.compile(r"\bWDT\b|watchdog|看门狗", re.I)),
+    ("COMMUNICATION", "bus_error",
+     re.compile(r"\bNACK\b|\bCRC\b|\b(no|missing)\s+ACK\b|did not acknowledge|not acknowledged", re.I)),
+    ("TIMEOUT", "timeout", re.compile(r"time(d)?[\s-]?out|超时", re.I)),
+    ("VOLTAGE", "voltage_keyword", re.compile(r"\bVCC\b|brown[\s-]?out|(under|over)[\s-]?voltage|欠压|过压", re.I)),
     ("ASSERTION", "assertion", re.compile(r"assert", re.I)),
 ]
 
