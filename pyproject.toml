@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "test-log-analyzer"
+version = "0.1.0"
+description = "硬件测试日志分析工具：规则优先、LLM 兜底、低置信度人工审核"
+requires-python = ">=3.10"
+dependencies = ["pydantic>=2", "openai>=1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
