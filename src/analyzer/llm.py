@@ -83,6 +83,7 @@ class LLMClassifier:
             try:
                 resp = self.client.chat.completions.create(
                     model=self.model, temperature=0, max_tokens=200,
+                    extra_body={"enable_thinking": False},   # 关掉千问的「先思考」
                     messages=[{"role": "system", "content": SYSTEM_PROMPT}, {"role": "user", "content": user}])
                 out = Classification.model_validate(parse_json(resp.choices[0].message.content))
                 review = out.confidence < REVIEW_THRESHOLD or out.category == "UNKNOWN"
